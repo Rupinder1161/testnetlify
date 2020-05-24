@@ -18,9 +18,9 @@ export class App extends Component {
       .then(response =>
         {
           this.setState({
-            h : response.data.message
+            h : response.data.map(e =>e.message) +"\t" 
           })
-          console.log(response.data.message)})
+          console.log(response.data.map(e =>e.message))})
       .catch((error) => {
         console.log(error);
       })
