@@ -24,6 +24,11 @@ mongoose.connect(uri)
 .then(()=> console.log('mongoDb connected'))
 .catch(err => console.log(err));
 
+ const excerciseRouter = require('./routes/excercises');
+ app.use('/excercises',excerciseRouter);
+
+
+
 app.get('/api',(req,res) =>{
   const g = [{"message": "Hello json"},{"message": "Hello json"},{"message": "Hello json"},{"message": "Hello json"}]
 res.send(g)

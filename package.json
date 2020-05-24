@@ -4,23 +4,25 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "client-install":"cd jagtari && npm install",
+    "client-install": "cd jagtari && npm install",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server.js",
-    "dev":"concurrently \"npm run server\" \"npm run client\"",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "client": "npm start --prefix jagtari",
-    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false  cd jagtari && npm install && npm run build"
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false  cd jagtari && npm install && npm run build"
   },
   "author": "gurpret",
   "license": "MIT",
   "dependencies": {
+    "Router": "^2.1.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "concurrently": "^5.2.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "mongoose": "^5.9.12"
+    "mongoose": "^5.9.12",
+    "react-router-dom": "^5.2.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.3"
