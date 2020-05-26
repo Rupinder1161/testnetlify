@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import axios from 'axios'
-
+import Food from './components/Food'
 
 const Exercise = props => (
 
@@ -94,7 +94,8 @@ export class App extends Component {
 
     return (
       <div className="App">
-      <button onClick={data}>Btn</button>
+        <Food/>
+      {/* <button onClick={data}>Btn</button>
           <h1>{this.state.h}</h1>
           <table className="table table-striped table-dark table-hover">
           <thead className="thead-light">
@@ -109,9 +110,9 @@ export class App extends Component {
           </thead>
           <tbody>
             { this.exerciseList() }
-            {/* <List tasks={["hello","Love"]}/> */}
+          
           </tbody>
-        </table>
+        </table> */}
     </div>
     )
   }
