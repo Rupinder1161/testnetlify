@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
+import './food.css'
+import Navbar from './Navbar'
 
-
-
+import Slidera from './Slider'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import Divider from '@material-ui/core/Divider';
@@ -17,25 +18,21 @@ import OutlinedInput from '@material-ui/core/OutlinedInput';
 import InputLabel from '@material-ui/core/InputLabel';
 import InputAdornment from '@material-ui/core/InputAdornment';
 
+import Button from '@material-ui/core/Button';
 
 
+import { bounce } from 'react-animations';
+import Radium, {StyleRoot} from 'radium';
 
 
+const postiondata = Math.floor(Math.random() * (100 - 10)) + 10;
 
-
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-      width: '100%',
-      maxWidth: '36ch',
-      backgroundColor: "white",
-    },
-    inline: {
-      display: 'inline',
-    },
-  }));
-
-
+const styles = {
+  bounce: {
+    animation: 'x 1s',
+    animationName: Radium.keyframes(bounce, 'bounce')
+  }
+}
 
 
 export class Food extends Component {
@@ -43,7 +40,8 @@ export class Food extends Component {
         super(props)
     
         this.state = {
-             fullData:[]
+             fullData:[],
+             Price:0
         }
         this.getFood = this.getFood.bind(this)
     }
@@ -54,75 +52,105 @@ export class Food extends Component {
             
           this.setState({ fullData: response.data })
           console.log(response.data )
-         // console.log(this.state.exercises.style)
+         
         })
         .catch((error) => {
           console.log(error);
         })
       }
+
+      componentDidMount() {
+       
+        this.getFood()
+        // setInterval(this.getFood,5000)
+       
+      }
+
+      componentWillUnmount(){
+        this.getFood()
+      }
+
     
+      getPrice = (e) =>{
+        this.setState({
+            Price:e.target.value
+        })
+        console.log(this.state.Price)
+         }
+
     render() {
         const fullData = this.state.fullData
-        return (
-            <div>
-                                <div  style={{width:"100%"}}>
-                                  
-                                             <FormControl style={style.inputbox} size="small" variant="filled" style={useStyles.margin} variant="outlined">
-                                                   <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
-                                                   <OutlinedInput
-                                                       id="outlined-adornment-amount"
-                                                       // defaultValue={0}
-                                                       value={this.state.Pric}
-                                                       onChange={this.getFood}
-                                                       startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                                                       labelWidth={60}
-                                                       variant="filled"
-                                                       style={{background:"white",}}
-                                                        />
-                                                       </FormControl>
-                                         
-                                  </div>
+      
 
-                                       <div style={style.root} >
-
-
-                                        {fullData.map(e => e.Price > 0?
-                                            <List  >
-                                            <ListItem alignItems="flex-start" style={{marginTop:"20px"}}>
-                                             <ListItemAvatar>
-                                             <Avatar alt="Remy Sharp" src={e.VenueName} />
-                                              </ListItemAvatar>
-                                               <ListItemText key={e._id}  primary={e.FoodName} secondary={
-                                                           <React.Fragment>
-                                                    <Typography component="span" style={style.inline} variant="body2" color="textPrimary">{e.VenueName}</Typography>{" — I'll be in your neighborhood doing errands this…"}
-                                                                                                       </React.Fragment>} />
-                                         </ListItem>
-                                         </List> :"")}
+        return (     
+          
+                                 <div>
+                                              <div className="center">   
+                                                        <Navbar/>
+                                                        
+                             {/* firstpart */}
+                                                     <div style ={{margin:"30px"}}>
+                                                         <FormControl  size="small" variant="filled" variant="outlined">
+                                                               <InputLabel htmlFor="outlined-adornment-amount">Amount</InputLabel>
+                                                               <OutlinedInput
+                                                                   id="outlined-adornment-amount"
+                                                                   // defaultValue={0}
+                                                                   value={this.state.Price}
+                                                                   onChange={this.getPrice}
+                                                                   startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                                                                   labelWidth={60}
+                                                                   variant="filled"
+                                                                   style={{background:"white",}}
+                                                                    />
+                                                          </FormControl>
+                                                       </div>
+                                                      
+                                                 </div>
+            
+                                {/* firstpart */}
+                                {/* secondpart */}
+                               
+                                       <div className="Center"  >
+                                    
+                                                   {fullData.map(e => e.Price <= this.state.Price?
+                                                       <List style={{maxWidth: '40ch'}}>
+                                                       <ListItem alignItems="flex-start" style={{marginTop:"20px"}} >
+                                                                   <ListItemAvatar>
+                                                                   <Avatar alt="Remy Sharp" src={e.VenueName} />
+                                                                    </ListItemAvatar>
+                                                                    
+                                                                     <ListItemText  key={e._id}  primary={e.FoodName + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' } secondary={
+                                                                    <div>
+                                                                   <React.Fragment>
+                                                                             <Typography component="span" variant="body2" color="textPrimary">{e.VenueName} <span className="price" > ${e.Price}</span>
+                                                                             {" — I'll be in your neighborhood doing errands this…I'll be in your neighborhood doing errands this"}
+                                                                             </Typography>
+                                                                             <Button variant="contained" color="secondary">Order Now</Button>
+                                                                   </React.Fragment>
+                                                                   </div>
+                                                                  
+                                                                  
+                                                                  }  />
+                 
+                                                       </ListItem>
+                                                    </List> :"")}
                                             </div>
-            </div>
+                                   {/* secondpart */}
+
+                                   {/* thirdpart */}
+                                   
+                                      <Slidera/>
+
+                                   
+                            
+                                  {/* thirdpart */}
+
+                                  
+                         </div>
         )
     }
 }
 
 
-const style = {
-    background:{
-        display:"flex",
-        flexFlow:"row wrap",
-        justifyContent:"center",
-        color:"white",
-        width:"80%",
-        backgroundImage:"white",
-        marginTop:"10vh",
-        marginBottom:"10vh",
-        borderRadius:'20px',
-    },
-    inline: {
-        display: 'inline',
-      },
-    inputbox:{
-        margin:"20px",
-        boxShadow:"0 5px 15px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22)"
-    }
-}
+
 export default Food

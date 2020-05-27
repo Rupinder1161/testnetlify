@@ -12,7 +12,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-// const uri = process.env.COOL;
+//const uri = process.env.COOL;
 const uri = 'mongodb+srv://Gurpreet:Singh@cluster0-e7gcr.gcp.mongodb.net/test?retryWrites=true&w=majority'
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
@@ -25,8 +25,9 @@ mongoose.connect(uri)
 .catch(err => console.log(err));
 
  const excerciseRouter = require('./routes/excercises');
+ const FoodRouter = require('./routes/food')
  app.use('/excercises',excerciseRouter);
-
+app.use('/food',FoodRouter)
 
 
 app.get('/api',(req,res) =>{
