@@ -25,26 +25,32 @@ mongoose.connect(uri)
 .then(()=> console.log('mongoDb connected'))
 .catch(err => console.log(err));
 
- const excerciseRouter = require('./routes/excercises');
- const FoodRouter = require('./routes/food')
- app.use('/excercises',excerciseRouter);
-app.use('/food',FoodRouter)
-
-
-app.get('/api',(req,res) =>{
-  const g = [{"message": "Hello json"},{"message": "Hello json"},{"message": "Hello json"},{"message": "Hello json"}]
-res.send(g)
-})
+app.use('/', express.static(path.join(__dirname, '/jagtari/build')));
 
 
 if(process.env.NODE_ENV === 'production'){
-app.use(express.static('jagtari/build'));
+  app.use(express.static('jagtari/build'));
+  
+  app.get('*',(req,res) =>{
+         
+        res.sendFile(path.resolve(__dirname,'jagtari','build','index.html'))
+  })
+  }
 
-app.get('*',(req,res) =>{
-       app.use('/', express.static(path.join(__dirname, '/jagtari/build')));
-      // res.sendFile(path.resolve(__dirname,'jagtari','build','index.html'))
-})
-}
+
+//  const excerciseRouter = require('./routes/excercises');
+//  const FoodRouter = require('./routes/food')
+//  app.use('/excercises',excerciseRouter);
+// app.use('/food',FoodRouter)
+
+
+// app.get('/api',(req,res) =>{
+//   const g = [{"message": "Hello json"},{"message": "Hello json"},{"message": "Hello json"},{"message": "Hello json"}]
+// res.send(g)
+// })
+
+
+
 
 
 
