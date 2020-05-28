@@ -18,7 +18,7 @@ const uri = 'mongodb+srv://Gurpreet:Singh@cluster0-e7gcr.gcp.mongodb.net/test?re
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
 
 mongoose.connect(uri)
