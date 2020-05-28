@@ -12,7 +12,7 @@
     "client": "npm start --prefix jagtari",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false  cd jagtari && npm install && npm run build"
   },
-  "author": "gurpret",
+  "author": "gurpreet",
   "license": "MIT",
   "dependencies": {
     "Router": "^2.1.0",
