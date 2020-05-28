@@ -12,7 +12,8 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-//const uri = process.env.COOL;
+const ul = process.env.MONGO
+console.log(typeof(ul))
 const uri = 'mongodb+srv://Gurpreet:Singh@cluster0-e7gcr.gcp.mongodb.net/test?retryWrites=true&w=majority'
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true }
 );
