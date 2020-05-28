@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "client-install": "cd jagtari && npm install",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "echo \"Error: no test secified\" && exit 1",
     "start": "node server.js",
     "server": "nodemon server.js",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
