@@ -116,7 +116,7 @@ export class Food extends Component {
                                                        <List style={{maxWidth: '40ch'}}>
                                                        <ListItem alignItems="flex-start" style={{marginTop:"20px"}} >
                                                                    <ListItemAvatar>
-                                                                   <Avatar alt="Remy Sharp" src={e.VenueName} />
+                                                                   <Avatar alt="Remy Sharp" src={e.VenueName} variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price}</Avatar>
                                                                     </ListItemAvatar>
                                                                     
                                                                      <ListItemText  key={e._id}  primary={e.FoodName + '\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0\xa0' } secondary={

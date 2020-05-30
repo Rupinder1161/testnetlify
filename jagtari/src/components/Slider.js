@@ -48,6 +48,10 @@ const useStyles = makeStyles((theme) => ({
     avatar: {
       backgroundColor: red[500],
     },
+    rounded: {
+      color: '#fff',
+      backgroundColor: "green",
+    }
   }));
 
 
@@ -187,15 +191,18 @@ export class Slidera extends Component {
 
 
      const fullData = this.state.fullData
+      
         return (
                  <div className="Slidermain">
                                       <Slider {...settings}>
                                
                                                               {fullData.map(e => 
                                                                <div>
+                                                                {e.VenueName.split('')[0]}
                                                                 <Card style={{backgroundColor:"#F5F5DC"}} >
-                                                                 <CardHeader avatar={  <Avatar aria-label="recipe" > R </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
-                                                                       title={e.VenueName}
+                
+                                                                 <CardHeader avatar={  <Avatar aria-label="recipe" variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price}</Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
+                                                                       title={e.FoodName + " from  " + e.VenueName }
                                                                       subheader="September 14, 2016" />
                                                                  <CardMedia  className={useStyles.media} image="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg" title="Paella dish"><img className="ImgCenter" src="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"/></CardMedia>
                                                                   <CardContent> <Typography variant="body2" color="textSecondary" component="p">This impressive paella is a perfect party dish and a fun meal to cook together with your
@@ -214,7 +221,7 @@ export class Slidera extends Component {
                                                               {fullData.map(e => 
                                                                <div>
                                                                 <Card style={{backgroundColor:"#F5F5DC"}} >
-                                                                 <CardHeader avatar={  <Avatar aria-label="recipe" > R </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
+                                                                 <CardHeader avatar={  <Avatar aria-label="recipe"variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price} </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
                                                                        title={e.VenueName}
                                                                       subheader="September 14, 2016" />
                                                                  <CardMedia  className={useStyles.media} image="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg" title="Paella dish"><img className="ImgCenter" src="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"/></CardMedia>
@@ -234,7 +241,7 @@ export class Slidera extends Component {
                                           {fullData.map(e => 
                                            <div>
                                             <Card style={{backgroundColor:"#F5F5DC"}} >
-                                             <CardHeader avatar={  <Avatar aria-label="recipe" > R </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
+                                             <CardHeader avatar={  <Avatar aria-label="recipe" variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price} </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
                                                    title={e.VenueName}
                                                   subheader="September 14, 2016" />
                                              <CardMedia  className={useStyles.media} image="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg" title="Paella dish"><img className="ImgCenter" src="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"/></CardMedia>
@@ -254,7 +261,7 @@ export class Slidera extends Component {
                                           {fullData.map(e => 
                                            <div>
                                             <Card style={{backgroundColor:"#F5F5DC"}} >
-                                             <CardHeader avatar={  <Avatar aria-label="recipe" > R </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
+                                             <CardHeader avatar={  <Avatar aria-label="recipe"variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price} </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
                                                    title={e.VenueName}
                                                   subheader="September 14, 2016" />
                                              <CardMedia  className={useStyles.media} image="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg" title="Paella dish"><img className="ImgCenter" src="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"/></CardMedia>
