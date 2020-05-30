@@ -67,7 +67,7 @@ export class Slidera extends Component {
     }
 
     getFood(){
-        axios.get('http://localhost:5000/food/')
+        axios.get('/food/')
         .then(response => {
             
           this.setState({ fullData: response.data })
