@@ -1,25 +1,30 @@
 import React, { Component } from 'react'
-import './food.css'
+import './nav.css'
 
-const g = [
-    {header:"JagTari", url:'/'},
 
-]
 
 export class Navbar extends Component {
     render() {
         return (
-            <div className="header">
-                 {g.map(h => {
-                    // console.log(h.url)
-                    return <h4>
-                         {/* <Link to={h.url} */}
-                          {/* className="Link"> */}
-                          {h.header}
-                          {/* </Link> */}
-                          </h4>
-                    })} 
-            </div>
+            <div className="nav">
+                     <input type="checkbox" id="nav-check"/>
+                       <div class="nav-header">
+                           <div class="nav-title">Jagtari</div>
+                         </div>
+                     <div class="nav-btn">
+                                  <label for="nav-check">
+                                <span></span>
+                                   <span></span>
+                              <span></span>
+                                   </label>
+                            </div>
+  
+                         <div class="nav-links">
+                           <a href="//github.io/jo_geek" target="_blank">ADD YOUR MENU</a>
+                           <a href="http://stackoverflow.com/users/4084003/" target="_blank">LOGIN</a>
+                           
+                         </div>
+               </div>
         )
     }
 }

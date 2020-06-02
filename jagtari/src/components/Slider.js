@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import axios from 'axios'
-
+import './nav.css'
 
 import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
@@ -192,7 +192,7 @@ export class Slidera extends Component {
         return (
                  <div className="Slidermain">
                      <Divider />
-                     <h3>Popular Around YOU</h3>
+                     <h3 className="heading">Popular Around You</h3>
                                       <Slider {...settings}>
                                     
                                                               {fullData.map(e => 
