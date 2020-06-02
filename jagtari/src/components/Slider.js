@@ -21,7 +21,7 @@ import FavoriteIcon from '@material-ui/icons/Favorite';
 import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
-
+import Divider from '@material-ui/core/Divider';
 
 
 
@@ -110,7 +110,7 @@ export class Slidera extends Component {
             slidesToShow: 3,
             slidesToScroll: 1,
             pauseOnHover: true,
-            autoplaySpeed:3000,
+            autoplaySpeed:1000,
             accessibility:true,
             focusOnSelect:true,
             arrows:true,
@@ -130,7 +130,7 @@ export class Slidera extends Component {
                   breakpoint: 600,
                   settings: {
                     slidesToShow: 2,
-                    slidesToScroll: 1,
+                    slidesToScroll: 2,
                     initialSlide: 1
                   }
                 },
@@ -152,11 +152,11 @@ export class Slidera extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             pauseOnHover: true,
-            autoplaySpeed:2000,
+            autoplaySpeed:1000,
             accessibility:true,
             focusOnSelect:true,
             arrows:true,
-            vertical:true,
+            // vertical:true,
             adaptiveHeight: true,
             responsive: [
                 {
@@ -194,11 +194,12 @@ export class Slidera extends Component {
       
         return (
                  <div className="Slidermain">
+                     <Divider />
                                       <Slider {...settings}>
-                               
+                                    
                                                               {fullData.map(e => 
                                                                <div>
-                                                                {e.VenueName.split('')[0]}
+                                                                
                                                                 <Card style={{backgroundColor:"#F5F5DC"}} >
                 
                                                                  <CardHeader avatar={  <Avatar aria-label="recipe" variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price}</Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
@@ -215,9 +216,10 @@ export class Slidera extends Component {
                                
                                
                                     </Slider>
-
+                                    
+                                    <Divider />
                                     <Slider {...settingse}>
-                               
+                                    <Typography>Popular around you</Typography>
                                                               {fullData.map(e => 
                                                                <div>
                                                                 <Card style={{backgroundColor:"#F5F5DC"}} >
