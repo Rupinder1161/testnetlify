@@ -105,7 +105,7 @@ export class Slidera extends Component {
         var settings = {
             // dots: true,
             infinite: true,
-            speed: 2500,
+            speed: 3000,
             autoplay: true,
             slidesToShow: 3,
             slidesToScroll: 1,
@@ -152,12 +152,11 @@ export class Slidera extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             pauseOnHover: true,
-            autoplaySpeed:1000,
+            autoplaySpeed:3000,
             accessibility:true,
             focusOnSelect:true,
             arrows:true,
             // vertical:true,
-            adaptiveHeight: true,
             responsive: [
                 {
                   breakpoint: 1024,
@@ -218,7 +217,7 @@ export class Slidera extends Component {
                                     </Slider>
                                     
                                     <Divider />
-                                    <Slider {...settingse}>
+                                    <Slider {...settings}>
                                     <Typography>Popular around you</Typography>
                                                               {fullData.map(e => 
                                                                <div>
