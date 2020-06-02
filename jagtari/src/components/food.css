@@ -123,3 +123,24 @@ img{
 .animateIn{
   maxWidth: '40ch'
 }
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 15px;
+}
+
+.wrapper ListItem:first-child,
+.wrapper ListItem:nth-child(2) {
+  grid-column: span 2;
+}
+
+ListItem {
+  border: 1px solid red;
+  width: 100%;
+  grid-column: span 1;
+}
+
+h1 {
+  border: 1px solid red;
+}

@@ -21,25 +21,7 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import Button from '@material-ui/core/Button';
 
 
-import { bounce } from 'react-animations';
-import Radium, {StyleRoot} from 'radium';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-                                           
-
-const postiondata = Math.floor(Math.random() * (100 - 10)) + 10;
-
-const styles = {
-  bounce: {
-    animation: 'x 1s',
-    animationName: Radium.keyframes(bounce, 'bounce')
-  },
-  paper: {
-    padding: "2px",
-    textAlign: 'center',
-    color: "grey",
-  }
-}
+                                          
 
 
 export class Food extends Component {
@@ -117,13 +99,11 @@ export class Food extends Component {
                                 {/* firstpart */}
                                 {/* secondpart */}
                                
-                                       <div style={{display:"flex",flexFlow:"row wrap",justifyContent:"center",alignItems:"center"}} >
-                                       
-                                       
-                                            {fullData.map(e => e.Price <= this.state.Price?
-                                                       <List style={{maxWidth: '40ch'}}>
-            
-                                                       <ListItem alignItems="flex-start" style={{margin:"20px",boxShadow: "5px 10px 8px #888888"}} >
+                                       <div>
+                                         
+                                                       <List style={{display:"flex",flexFlow:"row wrap" ,justifyContent:"center",width:"100%"}}>
+                                                       {fullData.map(e => e.Price <= this.state.Price?
+                                                       <ListItem  style={{ maxWidth:"40ch",margin:"20px",boxShadow: "5px 10px 8px #888888"}} >
                                                                    <ListItemAvatar>
                                                                    <Avatar alt="Remy Sharp" src={e.VenueName} variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price}</Avatar>
                                                                     </ListItemAvatar>
@@ -134,15 +114,12 @@ export class Food extends Component {
                                                                              <Typography component="span" variant="body2" color="textPrimary">{e.VenueName} <span className="price" > ${e.Price}</span>
                                                                              {" — I'll be in your neighborhood doing errands this…I'll be in your neighborhood doing errands this"}
                                                                              </Typography>
-                                                                             <Button variant="contained" color="secondary">Order Now</Button>
+                                                                             <Button variant="contained" style={{width:"100%"}} color="secondary">Order Now</Button>
                                                                    </React.Fragment>
-                                                                   </div>
-                                                                  
-                                                                  
-                                                                  }  />
+                                                                   </div>}  />
                  
-                                                       </ListItem>
-                                                    </List> :"")} 
+                                                       </ListItem>:"")} 
+                                                    </List>
                                             </div>
                                    {/* secondpart */}
 

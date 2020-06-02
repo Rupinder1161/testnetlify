@@ -105,23 +105,21 @@ export class Slidera extends Component {
         var settings = {
             // dots: true,
             infinite: true,
-            speed: 3000,
             autoplay: true,
             slidesToShow: 3,
             slidesToScroll: 1,
             pauseOnHover: true,
-            autoplaySpeed:1000,
+            autoplaySpeed:2500,
             accessibility:true,
             focusOnSelect:true,
             arrows:true,
             rtl:true,
-            adaptiveHeight: true,
             responsive: [
                 {
                   breakpoint: 1024,
                   settings: {
                     slidesToShow: 3,
-                    slidesToScroll: 1,
+                    slidesToScroll: 2,
                     infinite: true,
                     dots: true
                   }
@@ -152,7 +150,7 @@ export class Slidera extends Component {
             slidesToShow: 1,
             slidesToScroll: 1,
             pauseOnHover: true,
-            autoplaySpeed:3000,
+            autoplaySpeed:1000,
             accessibility:true,
             focusOnSelect:true,
             arrows:true,
@@ -194,12 +192,13 @@ export class Slidera extends Component {
         return (
                  <div className="Slidermain">
                      <Divider />
+                     <h3>Popular Around YOU</h3>
                                       <Slider {...settings}>
                                     
                                                               {fullData.map(e => 
-                                                               <div>
+                                                               <div style={{width:"228px"}}>
                                                                 
-                                                                <Card style={{backgroundColor:"#F5F5DC"}} >
+                                                                <Card style={{backgroundColor:"#F5F5DC",}} >
                 
                                                                  <CardHeader avatar={  <Avatar aria-label="recipe" variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price}</Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
                                                                        title={e.FoodName + " from  " + e.VenueName }
@@ -217,24 +216,12 @@ export class Slidera extends Component {
                                     </Slider>
                                     
                                     <Divider />
-                                    <Slider {...settings}>
-                                                              {fullData.map(e => 
-                                                               <div>
-                                                                <Card style={{backgroundColor:"#F5F5DC"}} >
-                                                                 <CardHeader avatar={  <Avatar aria-label="recipe"variant="rounded" style={{backgroundColor:"green",padding:"2px",color: '#fff',color: '#fff'}} >${e.Price} </Avatar>}  action={<IconButton aria-label="settings"> </IconButton> }
-                                                                       title={e.VenueName}
-                                                                      subheader="September 14, 2016" />
-                                                                 <CardMedia  className={useStyles.media} image="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg" title="Paella dish"><img className="ImgCenter" src="https://www.helpguide.org/wp-content/uploads/table-with-grains-vegetables-fruit-768.jpg"/></CardMedia>
-                                                                  <CardContent> <Typography variant="body2" color="textSecondary" component="p">This impressive paella is a perfect party dish and a fun meal to cook together with your
-                                                                  guests. Add 1 cup of frozen peas along with the mussels, if you like.
-                                                                  </Typography>
-                                                                </CardContent>
-                                                                </Card></div>
-                                                                )}
+                                    <div>
+                                                             
                                
                                
-                               
-                                    </Slider>
+                               </div>
+                                    
 
                                     <Slider {...settings}>
                                
