@@ -218,7 +218,6 @@ export class Slidera extends Component {
                                     
                                     <Divider />
                                     <Slider {...settings}>
-                                    <Typography>Popular around you</Typography>
                                                               {fullData.map(e => 
                                                                <div>
                                                                 <Card style={{backgroundColor:"#F5F5DC"}} >
